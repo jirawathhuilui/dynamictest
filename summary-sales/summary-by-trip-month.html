@@ -4,7 +4,7 @@
 <head>
    <meta charset="utf-8" />
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>Summary Weekly</title>
+   <title>Sum Sales by TRIP/MONTH</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv='cache-control' content='no-cache'>
 <meta http-equiv='expires' content='0'>
@@ -45,19 +45,28 @@
    </script> -->
 
    <br>
-   <canvas id="myChart" height="130px"></canvas>
+   <div class="container-fluid">
+      <div class="row ml-1 mr-1">
+         <div class="col-12">
+            <h1 class='text-danger text-left'>Summary Sales: TRIP/MONTH</h1>
+            <br>
 
-   <script src="js/summary-by-trip-month.js"></script>
-<script>
-if (performance.navigation.type == 1) {
-         let w = 0
-         if(w = 0){
-         window.location.reload(true);
-         w++;
-         }
+            <canvas id="myChart" height="130px"></canvas>
+
+            <script src="js/summary-by-trip-month.js"></script>
+            <script>
+               if (performance.navigation.type == 1) {
+                  let w = 0
+                  if(w = 0){
+                  window.location.reload(true);
+                  w++;
+                  }
+               }
+            </script>
+         </div>
+      </div>
          
-      }
-	</script>
+   </div>
 </body>
 
 </html>
