@@ -394,7 +394,7 @@ const createExcelTable = (master, shipment, status, month, selectYear) => {
 const exportToExcel = () => {
   const month = document.querySelector('#month').value;
   const selectYear = document.querySelector('#year').value;
-s
+
   if(!month || !selectYear) {
     Swal.fire({
       type: 'warning',
