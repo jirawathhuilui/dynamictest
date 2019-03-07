@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>TOD By Year</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous">
+   <!-- Bootstrap JS -->
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"></script>
+
+   <!-- Font Awesome -->
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous">
+
+   <!-- JQuery -->
+   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+   <link rel="stylesheet" href="css/summary-by-year.css">
+
+   <style>
+      #footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      }
+   </style>
+</head>
+
+<body>
+
+   <!-- <div id="navbar"></div>
+
+   <script>
+      $("#navbar").load("navbar.html", () => {
+		$("#by-year").addClass("text-white");
+	});
+   </script> -->
+
+   <br>
+   <div class="container text-center">
+      <h1 class='text-danger text-left'>Summary Sales: By Year</h1>.
+
+      <div class="row">
+         <div class="col-12">
+            <h5 class="border bg-secondary text-white">Summary Plan 2019</h5>   
+            <h1 id="summary-plan-txt"></h1>
+         </div>   
+      </div>
+      <br><br>
+      <div class="row">
+         <div class="col-6">
+            <h5 class="border bg-primary text-white">Actual</h5>
+            <h1 id="actual-txt"></h1>
+         </div>
+         <div class="col-6">
+            <h5 class="border bg-primary text-white">% Progress</h5>
+            <h1 id="progress-txt"></h1>
+         </div>
+      </div> 
+      <br><br>
+      <div class="row">
+         <div class="col-6">
+            <h5 class="border bg-danger text-white">Diff Amount</h5>
+            <h1 id="diff-amount-txt"></h1>
+         </div>
+         <div class="col-6">
+            <h5 class="border bg-danger text-white">% Remain</h5>
+            <h1 id="remain-txt"></h1>
+         </div>
+      </div>  
+   </div>
+
+   <br>
+   <div class="container text-danger">
+      <h5 style="font-weight: bold; text-decoration: underline">หมายเหตุ:</h5>  
+      <p>ตัวเลขที่อยู่ใน "Summary Plan 2019" ยังเป็นตัวเลขเดียวกับปี 2018 ซึ่งอยู่ระหว่าง Management Review ความถูกต้องอยู่</p> 
+   </div>
+   <script src="js/summary-by-year.js"></script>
+<script>
+if (performance.navigation.type == 1) {
+         let w = 0
+         if(w = 0){
+         window.location.reload(true);
+         w++;
+         }
+         
+      }
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+.col-4 {
+   padding: 0 2px;
+}
+
+p span {
+   color: black;
+}
+
+.container h6 {
+   color: white;
+}
+
+#right-report h6 {
+   color: red;
+}
+
+.text-large {
+   font-size: 150%;
+}
+
+.text-large h5 {
+   color: white
+}
+
+.text-large + .col-6 {
+  
+}
+
+.text-orange {
+   background-color: rgb(238, 142, 16);
+}
+
+.text-dark-green {
+   background-color: rgb(11, 117, 11);
+}
+
+.col-2, .col-3 {
+   padding: 0 2px;
+}
+
+.bg-light-red {
+   background-color: rgb(250, 127, 127)
+}

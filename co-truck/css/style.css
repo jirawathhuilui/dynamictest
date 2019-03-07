@@ -1,0 +1,87 @@
+/* @import url("https://fonts.googleapis.com/css?family=Barrio|Montserrat:700"); */
+body {
+  /* font-family: 'Montserrat', sans-serif; */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  /* background: #111; */
+}
+
+button {
+  cursor: pointer;
+  margin: auto;
+  padding: 1rem;
+  text-transform: uppercase;
+  color: #fafafa;
+  background-color: #00d166;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.4);
+  -webkit-transition: .3s all ease;
+  transition: .3s all ease;
+  letter-spacing: .1rem;
+  font-size: .85rem;
+  position: relative;
+  top: 0;
+  right: 0;
+  padding-left: 2.5rem;
+}
+button:after, button:before {
+  position: absolute;
+  font-family: 'Barrio', sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #006b34;
+  -webkit-transition: .3s all ease;
+  transition: .3s all ease;
+}
+button:before {
+  content: '_';
+  position: absolute;
+  left: 1.4rem;
+  top: .9rem;
+}
+button:after {
+  content: '>';
+  position: absolute;
+  left: .8rem;
+  top: 1rem;
+}
+button:hover {
+  box-shadow: 1px 1px 10px rgba(150, 150, 150, 0.7);
+  top: -.1rem;
+  right: -.1rem;
+}
+button:hover:before {
+  content: '_';
+  position: absolute;
+  left: .8rem;
+  top: .64rem;
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+}
+button:hover:after {
+  content: '>';
+  position: absolute;
+  left: 1.1rem;
+  top: 1rem;
+}
+
+img {
+  margin-bottom: 50px; 
+  border: 1px solid black; 
+  height: 80%; width: 60%;
+  transition: box-shadow .3s;
+  border-radius:10px;
+  border: 1px solid #ccc;
+}
+
+img:hover {
+  box-shadow: 0 0 11px rgba(0, 0, 0, 0.719); 
+}
+
+#center-div {
+  margin-top: 150px;
+}

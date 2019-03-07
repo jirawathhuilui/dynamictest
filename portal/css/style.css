@@ -1,0 +1,47 @@
+.top-bar{
+    background-color: black;
+}
+
+.under-navbar{
+    padding: 100px 0;
+}
+
+.dml-section{
+    background-image: url("../image/header.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    /* padding: 100px 0; */
+
+}
+
+.dml-text{
+    color: #fff;
+    padding-bottom: 35px;
+}
+
+.feature-section{
+    padding: 1.5rem 0;
+}
+
+.card-width-height{
+    width: auto;
+    height: 90px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+a.link-a :link, a.link-a:visited {
+    background-color: #fdaaa5;
+    color: #000000;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+a.linkhover-a:hover, a.linkhover-a:active {
+background-color: #dadada;
+}

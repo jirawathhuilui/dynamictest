@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cotruck</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        button{ 
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id='center-div' class='container text-center'>
+        <div class='row'>
+            <div class='col-12'><h1>CO-TRUCK</h1></div>
+            <div class='col-12'><img src="image/logo.png" alt="dmllogo" data-tilt>
+            </div>
+            <div class='col-12 col-md-2'></div>
+            <button class='col-8 col-md-3' id='addStatus' onclick="changePage('from_post_date_cotruck.html')">Add Status</button>
+            <button class='col-8 col-md-3' id='reportCotruck' onclick="changePage('report_cotruck_ready.html')">Report Co-truck</button>
+            <div class='col-12 col-md-2'></div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+    <script src="js/vanilla-tilt.min.js"></script>
+</body>
+</html>

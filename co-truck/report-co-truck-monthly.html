@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Report Co-Truck Monthly</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous">
+    <!-- swal2  -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+   <!-- JQuery -->
+   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+   <!-- link css -->
+   <link rel="stylesheet" href="css/report-co-truck-monthly.css">
+
+</head>
+
+<body>
+   <div id="navbar"></div>
+   <script>
+         $("#navbar").load("navbar-co-truck.html", () => {
+            $("#report-co-truck-monthly").addClass("text-white");
+         });
+   </script>
+
+   <br>
+
+   <div class="container-fluid">
+      <!-- <div class="row">
+         <div class="col-6 border">
+            <p style="font-size:0.75rem; padding-top:10px;">ค้นหาเพิ่มเติม</p>
+            
+         </div>
+      </div> -->
+      <div class="form-group row">
+         <div>
+            <p class="pl-3 pt-2 font-weight-bold" style="font-size:0.75rem;">เพิ่มเติม :</p>
+         </div>
+         <div class="col-3">
+            <select class="form-control" id="year" onchange="setSelectMonth(this.value)">
+               <option selected value='' disabled>Select Year</option>
+            </select>
+         </div>
+         <div class="col-3">
+            <!-- <label for="month">เลือกเดือนที่ต้องการ:</label> -->
+            <select class="form-control" id="month" onchange="getMasterAndReportByMonth(this.value)">
+            </select>
+         </div>
+         <div class="col-3">
+            <button class="btn btn-secondary" href="" onclick="exportToExcel()">Export</button>
+         </div>
+      </div>
+
+      <div id="loader"></div>
+      <h3>Summary Co-Truck Monthly Report</h3>
+
+      <table class="table table-bordered table-sm" id="report-table">
+         <thead>
+            <tr>
+               <th colspan="6" class="text-danger" id="date">
+                  <!-- set date here -->
+               </th>
+               <th colspan="6" class="text-light bg-primary text-center">
+                  สถานะของรถขนส่ง(สะสม: วัน)
+               </th>
+            </tr>
+            <tr class="text-center">
+               <th class="text-light bg-primary">Site</th>
+               <th class="text-light bg-primary">LP Number</th>
+               <th class="text-light bg-primary">Truck Type</th>
+               <th class="text-light bg-primary">KPI Target</th>
+               <th class="text-light bg-success">Sum Trip</th>
+               <th class="text-danger bg-warning">ไม่ได้<br>กรอกข้อมูล</th>
+               <th class="text-light bg-success">วิ่งต่อเนื่อง</th>
+               <th class="text-light bg-danger">ลางาน</th>
+               <th class="text-light bg-danger">หยุดงาน</th>
+               <th class="text-light bg-danger">รองาน</th>
+               <th class="text-light bg-danger">ซ่อมรถ</th>
+               <th class="text-light bg-danger">ไม่มี พขร.</th>
+            </tr>
+         </thead>
+
+         <tbody class="text-center" id="table-body">
+         </tbody>
+
+      </table>
+
+      <table id="header-fixed"></table>
+   </div>
+
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+      integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+      crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+      integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+      crossorigin="anonymous"></script>
+
+   <script src="js/report-co-truck-monthly.js"></script>
+   <script>
+         if (performance.navigation.type == 1) {
+             let w = 0
+             if(w = 0){
+             window.location.reload(true);
+             w++;
+             }
+         }
+     </script>
+</body>
+
+</html>

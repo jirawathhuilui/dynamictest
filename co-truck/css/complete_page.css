@@ -1,0 +1,85 @@
+div {
+  height: 200px;
+  width: 400px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -200px;
+}
+
+h1 {
+  margin: 10px 1  0px;
+  text-shadow: 0 0 3px #ffff, 0 0 5px #ffff;
+  font-size: 5em;
+}
+
+a {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+a span {
+  cursor: pointer;
+  display: inline-block;
+  color: #FFFFFF;
+  position: relative;
+  transition: 0.5s;
+}
+
+a span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+a:hover span {
+  padding-right: 25px;
+}
+
+a:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* hr */
+.trans--grow{
+  -webkit-transition: width 1s ease-out; /* For Safari 3.1 to 6.0 */
+  transition: width 1s  ease-out;
+  width : 0%;
+}
+
+.grow{
+  width:100%;
+}
+
+.hr1{
+  margin-left:0;
+  /* background-color: rgb(226, 11, 11); */
+}
+
+.hr2{
+  margin-right:0;
+  /* background-color: rgb(8, 16, 114); */
+}
+
+hr{
+  margin-top: 20px;
+  padding: 2px 0;
+  border: none;
+  background-color: rgb(250, 150, 0);
+  letter-spacing: 5px;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Co-Truck</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        button{ 
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
+
+    <div id='center-div' class='container text-center'>
+        <div class='row'>
+            <div class='col-12'><h1><b>CO-TRUCK</b></h1></div>
+            <div class='col-12'><img src="image/logo.png" alt="dmllogo" data-tilt>
+            </div>
+            <div class='col-12 col-md-2'></div>
+            <button class='col-8 col-md-3 bg-primary' id='addStatus' onclick="changePage('add-co-truck-status.html')"><b>Add Status</b></button>
+
+
+            <button class="col-8 col-md-3 bg-success" id="dropdownCotruckReport" data-toggle="dropdown">
+                <b>Co-Truck Reports</b>
+            </button>
+            <div class="col-8 col-md-3 dropdown-menu bg-success" aria-labelledby="dropdownCotruckReport">
+                <a class="dropdown-item bg-success text-white border"  id='reportCotruck' onclick="changePage('report-co-truck-daily.html')" target='_blank'>Daily Report</a>
+                <a class="dropdown-item bg-success text-white border"  href="report-co-truck-monthly.html" target='_blank'>Monthly Report</a>
+            </div>
+
+            <div class='col-12 col-md-2'></div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+    <script src="js/vanilla-tilt.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Summary by TOD</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- bootstrap -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+   <!-- my css -->
+   <link rel="stylesheet" type="text/css" href="css/summary-by-tod2.css">
+</head>
+
+<body>
+
+   <div class="container-fluid">
+      <h1 class='text-danger'>Sales by TOD: By Year</h1>
+
+      <div class="form-group row">
+         <div class='col-5'>
+            <select id='select-year' class='form-control' onchange="onChangeYear(this.value)">
+               <option value='' disabled>กรุณาเลือก...</option>
+               <!-- <option value="2018">2018</option>
+               <option value="2019">2019</option> -->
+            </select>
+         </div>
+          <div class="col-5">
+            <button class="btn btn-secondary" href="" onclick="exportToExcel()">Export</button>
+         </div>
+      </div>
+
+      <div id="loader"></div>
+      <table class='table table-bordered text-center' id='report-table'>
+         <thead>
+         </thead>
+         <tbody>
+         </tbody>
+      </table>
+   </div>
+
+   <!-- bootsrap -->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+
+   <!-- my js -->
+   <script src="js/summary-by-tod2.js"></script>
+</body>
+
+</html>

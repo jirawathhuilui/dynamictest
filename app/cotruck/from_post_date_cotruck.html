@@ -1,0 +1,136 @@
+<html>
+
+<head>
+  <title>From Post Date Co-truck</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
+  <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+  <!-- select -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+  <link rel="stylesheet" href="css/from_post_date_cotruck.css">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+  <!-- <br> -->
+  <!-- <div class='container text-right'>
+    <a class='btn btn-secondary' href='index.html'>Back </a>
+  </div> -->
+  <nav class="navbar navbar-dark bg-dark">
+      <!-- <div class='row'>
+      <div class='col-6'> -->
+      <a class="navbar-brand" href="index.html">
+          <h2 id='title'>Add Status</h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- </div> -->
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <div class="navbar-nav float-right text-right pr-3">
+              <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-item nav-link" href="report_cotruck_ready.html">Report Co-truck</a>
+          </div>
+      </div>
+      </div>
+  </nav>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-lg-6">
+        <p class="text-center"> <img src="image/logo.png" class="img-thumbnail" alt="Cinque Terre"> </p>
+        <hr>
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-6">
+
+            <p>วันที่ :</p>
+            <div class="form-group">
+              <input id="datepicker" name="d_DELIVERY" onchange="searchSet()" />
+              <script>
+                $('#datepicker').datepicker({
+                  format: 'dd/mm/yyyy',
+                  uiLibrary: 'bootstrap4'
+                });
+              </script>
+            </div>
+            <div class="col-3"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-6">
+
+            <label for="site">Site:</label>
+            <select class="form-control" id="site" name="s_Site" onchange="siteChange(); searchSet();">
+              <option value='none'>เลือก Site</option>
+              <option value="BPL">BPL</option>
+              <option value="CMC">CMC</option>
+              <option value="FST">FST</option>
+              <option value="CST">CST</option>
+              <option value="ImEx">ImEx</option>
+              <option value="CPF">CPF</option>
+              <option value="RKK">RKK</option>
+              <option value="RST">RST</option>
+              <option value="DMC">DMC</option>
+			  <option value="DCBT">DCBT</option>
+              <option value="DC5">DC5</option>
+            </select>
+            <div class="col-3"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+
+            <label for="locality-dropdown">ทะเบียนรถ:<span id='alertSite'></span></label>
+            <div onclick="disabledClick()">
+              <select class="form-control js-example-basic-single" id="locality-dropdown" name="s_LP_NUMBER" onchange="disabledClick()"
+                disabled>
+              </select>
+            </div>
+
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="status">สถานะรถ:</label>
+              <select class="form-control" id="status" name="s_STATUS">
+                <option>เลือกสถานะ</option>
+                <option value="ไม่มี พขร.">N : ไม่มี พขร. (None)</option>
+                <option value="รองาน">W : รองาน (Waiting)</option>
+                <option value="ลางาน">L : ลางาน (Work Leave)</option>
+                <option value="ติดเกาะ">I : ติดเกาะ (Island)</option>
+                <option value="ซ่อมรถ">R : ซ่อมรถ (Repair)</option>
+                <option value="พักงาน">S : พักงาน (Suspend)</option>
+                <option value="หยุดงาน">V : หยุดงาน (Vacation Leave)</option>
+                <option value="วิ่งงานต่อเนื่อง">C : วิ่งงานต่อเนื่อง (Continue)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success btn-block" onclick="postAPI()">ยืนยัน <i class="fas fa-sign-in-alt"></i></button>
+        <a class='btn btn-danger btn-block' style='color: white' onclick='refresh()'>เคลียร์หน้าจอ <i class="fas fa-sync-alt"></i></a>
+      </div>
+
+    </div>
+
+    <div class="col-3"></div>
+  </div>
+
+  <div id='myTable'>
+  </div>
+
+  <script src="js/from_post_date_cotruck.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Page Title</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+   <script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
+   <link rel="stylesheet" type="text/css" href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" />
+
+   <!-- select -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+   <style>
+      .select2-container .select2-selection--single {
+         height: 38px;
+      }
+   </style>
+</head>
+
+<body>
+
+   <br>
+
+   <div class="row">
+      <div class="col-1 col-xl-4"></div>
+
+      <!-- ฟอร์ม -->
+      <div class="col-10 col-xl-4">
+
+         <form>
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+                  <label class="input-group-text" for="lp-number">ทะเบียนรถ : </label>
+               </div>
+               <select class="custom-select" id="lp-number" onchange="onSelectLpNumber(this.value)">
+               </select>
+            </div>
+
+            <!-- <p>*โปรดเลือก</p> -->
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+                  <label class="input-group-text" for="filter-driver">รายละเอียดเพิ่มเติม : </label>
+               </div>
+               <select class="custom-select" id="filter-driver" onchange="onSelectFilter(this.value)">
+               </select>
+            </div>
+
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+                  <label class="input-group-text" for="province">จังหวัด / พื้นที่ : </label>
+               </div>
+               <input class="form-control" id="province" disabled>
+               </select>
+            </div>
+
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+                  <label class="input-group-text" for="select-tod">ฝ่าย : </label>
+               </div>
+               <input class="form-control" id="select-tod" disabled>
+            </div>
+
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+                  <label class="input-group-text" for="department">แผนก : </label>
+               </div>
+               <input class="form-control" id="department" disabled>
+            </div>
+
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+                  <label class="input-group-text" for="select-truck-type">ประเภทรถ : </label>
+               </div>
+               <!-- <select class="custom-select" id="select-truck-type">
+               </select> -->
+               <input class="form-control" id="select-truck-type" disabled>
+            </div>
+
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+                  <label class="input-group-text" for="driver-name">ชื่อ-นามสกุล พขร : </label>
+               </div>
+               <input id="driver-name" type="text" class="form-control">
+            </div>
+
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+                  <label class="input-group-text" for="trip">เที่ยวที่ : </label>
+               </div>
+               <select class="custom-select" id="trip">
+                  <option value='0' selected>กรุณาเลือก...</option>
+                  <option value=1>1</option>
+                  <option value=2>2</option>
+                  <option value=3>3</option>
+               </select>
+            </div>
+
+            <!-- วันที่ -->
+            <label for="usr"> <b> วันที่ : </b></label>
+            <input id="datepicker" width="device-width" />
+            <script>
+               $('#datepicker').datepicker({
+                  uiLibrary: 'bootstrap4',
+                  format: 'dd/mm/yyyy',
+                  defaultDate: new Date()
+               });
+            </script>
+            <hr>
+
+            <div class="row">
+               <a id="submitTemp" class="btn btn-success btn-block  btn-lg text-white" onclick="onNext()">ถัดไป</a>
+               <a class="btn btn-danger btn-block btn-lg text-white" href="index.html">กลับไปหน้าแรก</a>
+            </div>
+         </form>
+      </div>
+
+      <div class="col-1 col-xl-4"></div>
+   </div>
+   </div>
+
+</body>
+
+</html>

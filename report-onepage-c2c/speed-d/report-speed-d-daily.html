@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Daily Report Onepage Speed-D</title>
+
+   <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+   <META HTTP-EQUIV="Expires" CONTENT="-1">
+   <meta http-equiv='pragma' content='no-cache'>
+
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+   <link rel="shortcut icon" href="./image/ic_speedd_u26_12.ico" />
+   <!-- Load c3.css -->
+   <!-- <link href="c3/c3.min.css" rel="stylesheet"> -->
+
+   <!-- Load d3.js and c3.js -->
+   <!-- <script src="c3/d3-5.4.0.min.js" charset="utf-8"></script> -->
+   <!-- <script src="c3/c3.min.js"></script> -->
+   
+   <!-- Load c3 and d3 -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.12/d3.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css"/>
+
+   <style>
+      
+      #line-head { 
+         /* font-weight: bold; */ 
+         font-size: 2rem; 
+      }
+
+      .border { 
+         height: 300px; 
+         margin: 0; 
+      }
+
+      .head {
+         height: 350px;
+         margin: 0;
+      }
+
+      h4 {
+         text-align: left;
+         padding: 5px 10px;
+         background-color: rgb(58, 55, 252);
+         color: #ffffff;
+         margin: 0;
+      }
+
+      p {
+         margin: 0;
+      }
+
+      .c3-text {
+         font-weight: bold;
+         fill: black !important;
+      }
+
+      .gray{
+         background-color: rgba(0, 0, 0, 0.048);
+      }
+      
+   </style>
+
+</head>
+<body>
+   <br>
+   <div class="container text-center">
+
+      <div class="row">
+         <div class="col-md-12"> 
+               <h4 id='workload'><i class="fas fa-chart-pie"></i> Workload Order Daily</h4> 
+            <div class="col-md-12 border head p-1 gray"> 
+               <p id='line-head'></p> 
+               <!-- chart --> 
+               <div id="line-chart"></div> 
+            </div> 
+         </div> 
+      </div>
+
+      <div class="row">
+         <div class="col-lg-6 mt-5">
+            <h4>Order By Size</h4>
+            <div class="col-md-12 border p-1 gray">
+               <!-- <h4 class="text-left">ORDER By SIZE</h4> -->
+               <div id="bar-chart"></div>
+            </div>
+         </div>
+         <div class="col-lg-6 mt-5">
+            <h4>Order Per Courier</h4>
+            <div class="col-md-12 border p-1 gray">
+                  <!-- <h4 class="text-left">ORDER Per Courier</h4> -->
+               <div id="pie-chart"></div>
+            </div>
+         </div>
+      </div>
+      
+      <div class="row">
+         <div class="col-lg-6 mt-5">
+            <!-- <div class="mr-0.5 border"> -->
+            <h4>Order By Destination Zone</h4>
+            <div class="col-md-12 border p-1 gray">
+               <!-- chart -->
+               <div id="zone-chart"></div>
+            </div>
+         </div>
+         <div class="col-lg-6 mt-5">
+            <!-- <div class="ml-0.5 border"> -->
+            <h4>Top 10 Store Order</h4>
+            <div class="col-md-12 border p-1 gray">
+               <!-- <h4 class="text-left">TOP 10 STORE ORDER</h4> -->
+               <div id="topten-chart"></div>
+            </div>
+         </div>
+      </div>
+      
+      <div class="row">
+         <div class="col-lg-6 mt-5">
+            <h4>Delivery Performance</h4>
+            <div class="col-md-12 border p-1 gray">
+               <!-- chart -->
+               <div id="delivery-Performance-chart"></div>
+            </div>
+         </div>
+         <div class="col-lg-6 mt-5">
+            <h4>Fail Cause</h4>
+            <div class="col-md-12 border p-1 gray">
+               <!-- chart -->
+               <div id="fail-cause-chart"></div>
+            </div>
+         </div>
+      </div>
+      
+      <div class="row mt-5 ml-0 mr-0 border gray" style="height: 350px;">
+         <h4 style="width:100%; height:38.8px;">Status Performance By Courier</h4>
+            <div class="col-md-4" style="margin: 0;">
+               <br>
+               <h3>Alpha</h3>
+               <div id="alpha-status-chart"></div>
+            </div>
+            <div class="col-md-4" style="margin: 0;">
+               <br>
+               <h3>Sendit</h3>
+               <div id="sendit-status-chart"></div>
+            </div>
+            <div class="col-md-4" style="margin: 0;">
+               <br>
+               <h3>Dynamic</h3>
+               <div id="dml-status-chart"></div>
+            </div>
+      </div>
+
+   </div>
+   <br>
+   <script src="js/report-speed-d-daily.js?v=1"></script>
+   <script>
+      if (performance.navigation.type == 1) {
+         let w = 0;
+         if(w = 0){
+            window.location.reload(true);
+            w++;
+         }
+      }
+	</script>
+   
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+   <br>
+</body>
+</html>

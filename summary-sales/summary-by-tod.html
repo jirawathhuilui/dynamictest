@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Summary by TOD</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- bootstrap -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+
+   <div class="container">
+
+      <br>
+      
+      <div class="row">
+         <div class="col">
+            <h1>MIS BY TOD</h1>
+         </div>
+      </div>
+      
+      <br>
+
+      <div class="row">
+         <div class="col">
+            <select class='form-control' id='selectYear' onchange="onSelectYear(this)">
+               <option value="2018">2018</option>
+               <option value="2019" selected="selected">2019</option>
+            </select>
+         </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+         <div class="col">
+            <table class='table table-bordered text-center' id='report-table'>
+               <thead>
+                  <!-- <tr>
+                     <th class='align-middle' rowspan='2'>
+                        
+                     </th>
+                     <th colspan='2'>
+                        Jan
+                     </th>
+                     <th colspan='2'>
+                        Feb
+                     </th>
+                  </tr>
+         
+                  <tr>
+                     <th>
+                        P
+                     </th>
+                     <th>
+                        A
+                     </th>
+                     <th>
+                        P
+                     </th>
+                     <th>
+                        A
+                     </th>
+                  </tr> -->
+         
+               </thead>
+               <tbody>
+                  <!-- <tr>
+                     <td>
+                        TOD1
+                     </td>
+                     <td>
+                        20
+                     </td>
+                     <td>
+                        30
+                     </td>
+                     <td>
+                        40
+                     </td>
+                     <td>
+                        50
+                     </td>
+                  </tr> -->
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+   </div>
+
+   <!-- bootsrap -->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+
+   <!-- my js -->
+   <script src="js/summary-by-tod.js"></script>
+   
+</body>
+
+</html>
