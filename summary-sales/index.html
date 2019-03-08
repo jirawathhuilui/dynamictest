@@ -15,6 +15,56 @@
       /* a {
          margin: 20px 20px;
       } */
+
+      /* Open -- Dropdown menu multiple sub menu -- */
+      /* .dropdown-submenu {
+         position: relative;
+      }
+
+      .dropdown-submenu>.dropdown-menu {
+         top: 0;
+         left: 100%;
+         margin-top: -6px;
+         margin-left: -1px;
+         -webkit-border-radius: 0 6px 6px 6px;
+         -moz-border-radius: 0 6px 6px;
+         border-radius: 0 6px 6px 6px;
+      }
+
+      .dropdown-submenu:hover>.dropdown-menu {
+         display: block;
+      }
+
+      .dropdown-submenu>a:after {
+         display: block;
+         content: " ";
+         float: right;
+         width: 0;
+         height: 0;
+         border-color: transparent;
+         border-style: solid;
+         border-width: 5px 0 5px 5px;
+         border-left-color: #ccc;
+         margin-top: 5px;
+         margin-right: -10px;
+      }
+
+      .dropdown-submenu:hover>a:after {
+         border-left-color: #fff;
+      }
+
+      .dropdown-submenu.pull-left {
+         float: none;
+      }
+
+      .dropdown-submenu.pull-left>.dropdown-menu {
+         left: -100%;
+         margin-left: 10px;
+         -webkit-border-radius: 6px 0 6px 6px;
+         -moz-border-radius: 6px 0 6px 6px;
+         border-radius: 6px 0 6px 6px;
+      } */
+      /* Exit -- Dropdown menu multiple sub menu -- */
    </style>
 </head>
 <body>
@@ -37,30 +87,74 @@
             <a href="audit-form.html" class='col-8 col-md-3 btn btn btn-outline-secondary btn-lg bg-danger text-white' id='audit-form'>Audit</a> -->
 
             <div class="btn-group col-8 col-md-5">
-               <button class="btn btn-lg bg-success btn-block text-white" id="dropdownSummarySales" data-toggle="dropdown">
+               <button class="btn btn-lg bg-primary btn-block text-white" id="dropdownSummarySales" data-toggle="dropdown">
                   <b>Summary Sales</b>
                </button>
-               <div class="dropdown-menu bg-success btn-block text-white" aria-labelledby="dropdownSummarySales">
-                  <a class="dropdown-item btn bg-success text-white border" id="summary-by-weekly" href="summary-by-weekly.html" target="_blank">By Weekly</a>
-                  <a class="dropdown-item btn bg-success text-white border" id="summary-by-trip-month" href="summary-by-trip-month.html" target="_blank">Trip/Month</a>
-                  <a class="dropdown-item btn bg-success text-white border" id="summary-by-amt-month" href="summary-by-amt-month.html" target="_blank">Amount/Month</a>
-                  <a class="dropdown-item btn bg-success text-white border" id="summary-by-year" href="summary-by-year.html" target="_blank">By Year</a>
+               <div class="dropdown-menu bg-primary btn-block text-white" aria-labelledby="dropdownSummarySales">
+                  <a class="dropdown-item btn bg-primary text-white border" id="summary-by-weekly" href="summary-by-weekly.html" target="_blank">By Weekly</a>
+                  <a class="dropdown-item btn bg-primary text-white border" id="summary-by-trip-month" href="summary-by-trip-month.html" target="_blank">Trip/Month</a>
+                  <a class="dropdown-item btn bg-primary text-white border" id="summary-by-amt-month" href="summary-by-amt-month.html" target="_blank">Amount/Month</a>
+                  <a class="dropdown-item btn bg-primary text-white border" id="summary-by-year" href="summary-by-year.html" target="_blank">By Year</a>
                </div>
             </div>
             
             <div class="btn-group col-8 col-md-5">
-               <button class="btn btn-lg bg-primary btn-block text-white" id="dropdownSalesByTOD" data-toggle="dropdown">
+               <button class="btn btn-lg bg-success btn-block text-white" id="dropdownSalesByTOD" data-toggle="dropdown">
                   <b>Sales by TOD</b>
                </button>
-               <div class="dropdown-menu bg-primary btn-block text-white" aria-labelledby="dropdownSalesByTOD">
-                  <a class="dropdown-item btn bg-primary text-white border" id="tod-by-year" href="tod-by-year.html" target="_blank">By Year</a>
-                  <!-- <a class="dropdown-item btn bg-primary text-white border" id="audit-form" href="audit-form.html">ตรวจ สภาพรถและพนักงานขับรถ</a> -->
+               <div class="dropdown-menu bg-success btn-block text-white" aria-labelledby="dropdownSalesByTOD">
+                  <a class="dropdown-item btn bg-success text-white border" id="tod-by-year" href="tod-by-year.html" target="_blank">By Year</a>
                </div>
             </div>
 
             <div class='col-12 col-md-2'></div>
+
          </div>
       </div>
    </div>
+<!--    
+   <div class="container col-md-5">
+         <div class="row">
+            <h2>Multi level dropdown menu in Bootstrap</h2>
+            <hr>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown
+                </button>
+                <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                    <li class="dropdown-item"><a href="#">Some action</a></li>
+                    <li class="dropdown-item"><a href="#">Some other action</a></li>
+                    <li class="dropdown-divider"></li>
+                    <li class="dropdown-submenu">
+                      <a  class="dropdown-item" tabindex="-1" href="#">Hover me for more options</a>
+                      <ul class="dropdown-menu">
+                        <li class="dropdown-item"><a tabindex="-1" href="#">Second level</a></li>
+                        <li class="dropdown-submenu">
+                          <a class="dropdown-item" href="#">Even More..</a>
+                          <ul class="dropdown-menu">
+                              <li class="dropdown-item"><a href="#">3rd level</a></li>
+                                <li class="dropdown-submenu"><a class="dropdown-item" href="#">another level</a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item"><a href="#">4th level</a></li>
+                                    <li class="dropdown-item"><a href="#">4th level</a></li>
+                                    <li class="dropdown-item"><a href="#">4th level</a></li>
+                                </ul>
+                              </li>
+                                <li class="dropdown-item"><a href="#">3rd level</a></li>
+                          </ul>
+                        </li>
+                        <li class="dropdown-item"><a href="#">Second level</a></li>
+                        <li class="dropdown-item"><a href="#">Second level</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br> -->
+
 </body>
 </html>
