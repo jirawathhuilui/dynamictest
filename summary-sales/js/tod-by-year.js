@@ -1,25 +1,50 @@
+// Global variable
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+//-----
 
-const getByTod = (year) => {
-   return fetch(`http://27.254.189.185:5000/api/get/mis/${year}`)
-      .then(response => response.json());
-}
+// HTTP requets
+// const getByTod = (year) => {
+//    return fetch(`http://27.254.189.185:5000/api/get/mis/${year}`)
+//       .then(response => response.json());
+// }
 
 const getAllTod = () => {
    return fetch(`http://27.254.189.185:5000/api/get/mis/tod`)
       .then(response => response.json());
 }
 
-const getByTodAndAllTod = (year) => {
-   return Promise.all([getByTod(year), getAllTod()]);
+// const getByTodAndAllTod = (year) => {
+//    return Promise.all([getByTod(year), getAllTod()]);
+// }
+
+const getPlan = (year) => {
+   return fetch(`http://27.254.189.185:5000/api/get/mis/plan/${year}`)
+      .then(response => response.json())
 }
+
+const getActual = (year) => {
+   return fetch(`http://27.254.189.185:5000/api/get/mis/act/${year}`)
+      .then(response => response.json())
+}
+
+const getPlanActualAndAllTod = (year) => {
+   return Promise.all([getPlan(year), getActual(year), getAllTod()]);
+}
+//-----
 
 const onChangeYear = (year) => {
    openLoader();
 
-   getByTodAndAllTod(year)
-      .then(([byTodData, allTodData]) => createReportTable(byTodData, allTodData));
+   // getByTodAndAllTod(year)
+   //    .then(([byTodData, allTodData]) => createReportTable(byTodData, allTodData));
+   
+   getPlanActualAndAllTod(year)
+   .then(([planData, actualData, allTodData]) => {
+      const byTodData = mergePlanAndActual(planData, actualData);
+
+      createReportTable(byTodData, allTodData);
+   })
 }
 
 const createReportTable = (byTodData, allTodData) => {
@@ -95,9 +120,8 @@ const setTableBody = (byTodData, allTodData) => {
          tableBody += `
                         <td align="right" class="${(todDetail.length && !index && selectYear == currentYear) ? 'bg-primary text-white' : ''}">
                            ${
-                              todDetail.length
-                              // ? numberWithCommas(numFormatter(todDetail[0].fPlan, 1))
-                              ? numberWithCommas((todDetail[0].fPlan).toFixed(0))
+                              todDetail.length 
+                              ? (todDetail[0].fPlan ? numberWithCommas((todDetail[0].fPlan).toFixed(0)) : '-')
                               : '-'
                            }
                         </td>
@@ -105,8 +129,7 @@ const setTableBody = (byTodData, allTodData) => {
                                     : 'bg-danger text-white') : ''}">
                            ${
                               todDetail.length
-                              // ? numberWithCommas(numFormatter(todDetail[0].fAct, 1))
-                              ? numberWithCommas((todDetail[0].fAct).toFixed(0))
+                              ? (todDetail[0].fAct ? numberWithCommas((todDetail[0].fAct).toFixed(0)) : '-')
                               : '-'
                            }
                         </td>
@@ -118,6 +141,21 @@ const setTableBody = (byTodData, allTodData) => {
    })
 
    reportTableBody.innerHTML = tableBody;
+}
+
+const mergePlanAndActual = (planData, actualData) => {
+   let byTodData = planData;
+
+   for(let i = 0; i < byTodData.length; i++) {
+      const actualMonthData = actualData.filter(ele => ele.iMonth === byTodData[i].iMonth);
+
+      for(let j = 0; j < byTodData[i].detail.length; j++) {
+         const actualTodData = actualMonthData[0].detail.filter(ele => ele.sTodList === byTodData[i].detail[j].sTodList);
+         actualTodData.length ? byTodData[i].detail[j] = Object.assign({}, byTodData[i].detail[j], actualTodData[0]) : null;
+      }
+   }
+   
+   return byTodData;
 }
 
 const setSelectYear = () => {
@@ -259,7 +297,6 @@ const saveAs = (uri, filename) => {
 
 setSelectYear();
 startPage();
-
 // JQuery Add Col and Row
 // const addColume = () => {
 //    $('tbody tr').each(function(){
