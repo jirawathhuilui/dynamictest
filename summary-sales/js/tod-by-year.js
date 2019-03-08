@@ -28,9 +28,26 @@ const getActual = (year) => {
       .then(response => response.json())
 }
 
-const getPlanActualAndAllTod = (year) => {
-   return Promise.all([getPlan(year), getActual(year), getAllTod()]);
+const getPlanTotal = (year) => {
+   return fetch(`http://27.254.189.185:5000/api/get/mis/sum/plan/${year}`)
+      .then(response => response.json())
+
 }
+
+const getActTotal = (year) => {
+   return fetch(`http://27.254.189.185:5000/api/get/mis/sum/act/${year}`)
+      .then(response => response.json())
+
+}
+
+const getPlanActualAndAllTod = (year) => {
+   return Promise.all([getPlan(year), getActual(year), getAllTod(), getPlanTotal(year), getActTotal(year)]);
+}
+
+
+
+
+
 //-----
 
 const onChangeYear = (year) => {
@@ -40,16 +57,22 @@ const onChangeYear = (year) => {
    //    .then(([byTodData, allTodData]) => createReportTable(byTodData, allTodData));
    
    getPlanActualAndAllTod(year)
-   .then(([planData, actualData, allTodData]) => {
+   .then(([planData, actualData, allTodData, planTotal, actTotal]) => {
       const byTodData = mergePlanAndActual(planData, actualData);
+      const byTodTotal = mergePlanAndActual(planTotal, actTotal);
+      //input array [0] (delete array[0])
+      // let  a = allTodData.shift()
+      allTodData.push(allTodData.shift())
+      allTodData.push({sTod: "Total"})
+      console.log(byTodTotal)
 
-      createReportTable(byTodData, allTodData);
+      createReportTable(byTodData, allTodData, byTodTotal);
    })
 }
 
-const createReportTable = (byTodData, allTodData) => {
+const createReportTable = (byTodData, allTodData, byTodTotal) => {
    setTableHead(byTodData);
-   setTableBody(byTodData, allTodData);
+   setTableBody(byTodData, allTodData, byTodTotal);
 
    closeLoader();
 }
@@ -92,7 +115,7 @@ const setTableHead = (byTodData) => {
    reportTableHead.innerHTML = tableHead;
 }
 
-const setTableBody = (byTodData, allTodData) => {
+const setTableBody = (byTodData, allTodData, byTodTotal) => {
    const reportTableBody = document.querySelector('tbody');
    let tableBody = '';
    let selectYear = document.querySelector('#select-year').value;
@@ -102,43 +125,71 @@ const setTableBody = (byTodData, allTodData) => {
    // console.log("selectYear", selectYear)
 
    allTodData.forEach(allTodEle => {
-      const tod = allTodEle.sTod;
+      const tod = allTodEle.sTod; 
+
 
       // set tod before loop each month
       tableBody += `<tr>
                      <td style="font-weight:bold;">${tod}</td>
                   `;
+      if(allTodEle.sTod != "Total"){
 
-      // loop each month for get tod detail                  
-      byTodData.forEach((byTodEle, index) => {
-         const todDetail = byTodEle.detail.filter(ele => ele.sTodList === tod);
-         // console.log(index)
-         // const date = new Date();
-         // const currentYear = date.getFullYear();
-         // console.log(currentYear)
+         // loop each month for get tod detail                  
+         byTodData.forEach((byTodEle, index) => {
+            const todDetail = byTodEle.detail.filter(ele => ele.sTodList === tod);
+            // console.log(index)
+            // const date = new Date();
+            // const currentYear = date.getFullYear();
+            // console.log(currentYear)
 
-         tableBody += `
-                        <td align="right" class="${(todDetail.length && !index && selectYear == currentYear) ? 'bg-primary text-white' : ''}">
-                           ${
-                              todDetail.length 
-                              ? (todDetail[0].fPlan ? numberWithCommas((todDetail[0].fPlan).toFixed(0)) : '-')
-                              : '-'
-                           }
-                        </td>
-                        <td align="right" class="${(todDetail.length && !index && selectYear == currentYear) ? (todDetail[0].fAct >= todDetail[0].fPlan ? 'bg-success text-white' 
-                                    : 'bg-danger text-white') : ''}">
-                           ${
-                              todDetail.length
-                              ? (todDetail[0].fAct ? numberWithCommas((todDetail[0].fAct).toFixed(0)) : '-')
-                              : '-'
-                           }
-                        </td>
-                     `;
-      
-      })
+            tableBody += `
+                           <td align="right" class="${(todDetail.length && !index && selectYear == currentYear) ? 'bg-primary text-white' : ''}">
+                              ${
+                                 todDetail.length 
+                                 ? (todDetail[0].fPlan ? numberWithCommas((todDetail[0].fPlan).toFixed(0)) : '-')
+                                 : '-'
+                              }
+                           </td>
+                           <td align="right" class="${(todDetail.length && !index && selectYear == currentYear) ? (todDetail[0].fAct >= todDetail[0].fPlan ? 'bg-success text-white' 
+                                       : 'bg-danger text-white') : ''}">
+                              ${
+                                 todDetail.length
+                                 ? (todDetail[0].fAct ? numberWithCommas((todDetail[0].fAct).toFixed(0)) : '-')
+                                 : '-'
+                              }
+                           </td>
+                        `;
+         
+         })
+
+      }else{
+
+         byTodTotal.forEach((byTotal, index) => {
+            const todTotal = byTotal.detail.filter(ele => ele.sTodList === tod);
+
+            tableBody += `
+                           <td align="right" style="text-decoration: underline; text-decoration-style: double; font-weight:bold;" class="${(todTotal.length && !index && selectYear == currentYear) ? 'bg-primary text-white' : ''}">
+                              ${
+                                 todTotal.length 
+                                 ? (todTotal[0].fPlan ? numberWithCommas((todTotal[0].fPlan).toFixed(0)) : '-')
+                                 : '-'
+                              }
+                           </td>
+                           <td align="right" style="text-decoration: underline; text-decoration-style: double; font-weight:bold;" class="${(todTotal.length && !index && selectYear == currentYear) ? (todTotal[0].fAct >= todTotal[0].fPlan ? 'bg-success text-white' 
+                                       : 'bg-danger text-white') : ''}">
+                              ${
+                                 todTotal.length
+                                 ? (todTotal[0].fAct ? numberWithCommas((todTotal[0].fAct).toFixed(0)) : '-')
+                                 : '-'
+                              }
+                           </td>
+                        `;
+         })
+      }
 
       tableBody += '</tr>';
    })
+   
 
    reportTableBody.innerHTML = tableBody;
 }
