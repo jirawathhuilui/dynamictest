@@ -297,7 +297,7 @@ const onAddInputTag = (dataInfoElement=0, disabledEle) => {
     })
 
     let newInput = `<div id='tag-${newInputNo}'>
-                        <label>ครั้งที่ ${newInputNo}:</label>
+                        <label>ร้านที่ ${newInputNo}:</label>
                         <input step="any" det_id=${newInputNo} type="number" name=Q${newInputNo} id=Q${newInputNo} placeholder="ตัวเลขเท่านั้น" value="${dataInfoElement ? dataInfoElement.fValue : ''}" pattern="[0-9]" class="form-control" ${disabledEle}/>
                         <br>    
                     </div>`
